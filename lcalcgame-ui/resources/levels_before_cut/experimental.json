@@ -1,0 +1,42 @@
+{
+    "chapterName":"Experimental",
+    "description":"A place to test levels being designed.",
+    "levels": [
+        {
+            "description": "Boundless expansion (from lambda calc).",
+            "board": "(λx #x #x #x) (λx #x #x) (star) (diamond)",
+            "goal": "(diamond) (diamond) (diamond) (star) (star) (star) (star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(ifelse _b /star /triangle) (true) (pop __) (define (λy (put #y (bag star star)))) (bag star star star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(reduce (λa (λb (reduce (λx (λy (put #y #x))) #a #b))) (reduce (λx (λy (put (bag (star) (star)) #x))) (bag (star) (star) (star)) (bag )) (bag ))",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "\"Addition\" (union of multisets).",
+            "board": "(reduce /(λx /(λy /(put #y #x))) /(bag dot dot dot) __) (bag) (dot) (dot)",
+            "goal": "(bag dot dot dot dot dot)",
+            "toolbox": ""
+        },
+        {
+            "description": "Testing boolean chain.",
+            "board": "(reduce /(λx /(λy /(== #x _))) (bag star star star) (star)) (star)",
+            "goal": "false",
+            "toolbox": ""
+        },
+        {
+            "description": "Must understand how PUT returns a bag, and how objects in the initial bag in PUT are duplicated.",
+            "board": "(put #x __) (map /(λx _) __) (λx) (bag) (bag star star star)",
+            "goal": "(bag star star star star)",
+            "toolbox": ""
+        }
+    ]
+}

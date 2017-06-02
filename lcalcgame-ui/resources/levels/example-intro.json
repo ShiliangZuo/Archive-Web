@@ -1,0 +1,72 @@
+{
+    "chapterName":"Basics",
+    "description":"Identity, Destruction, and Replication",
+    "levels": [
+        {
+            "description":"Introduces concept: Identity.",
+            "board":"(λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Introduces concept: Identity.",
+            "board":"(λx #x) (λx #x) (λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Introduces concept: Constant functions.",
+            "board":"(λx /star) (rect) (star)",
+            "goal":"(star) (star)",
+            "toolbox":"",
+            "fade":{
+                "lambda":1
+            }
+        },
+        {
+            "description":"Introduces concept: Toolbox. (*used to be deletion)",
+            "board":"",
+            "goal":"star",
+            "toolbox":"(diamond) (star)"
+        },
+        {
+            "description":"Introduces concept: Replication.",
+            "board":"(λx #x #x) (star)",
+            "goal":"(star) (star)",
+            "toolbox":""
+        },
+        {
+            "description":"Toolbox can hold expressions.",
+            "board":"",
+            "goal":"(diamond) (diamond)",
+            "toolbox":"(star) (diamond) (λx #x #x)"
+        },
+        {
+            "description": "Replication with free binding.",
+            "board": "(λx _ _) (#_x) (#_x)",
+            "goal": "(triangle) (triangle)",
+            "toolbox": "(triangle) (star) (rect)"
+        },
+        {
+            "description":"Functions are first-class.",
+            "board":"(λx #x) (λx #x #x)",
+            "goal":"(λx #x) (λx #x)",
+            "toolbox":""
+        },
+        {
+            "description":"Functions are first-class!",
+            "board":"(λx #x #x #x) (λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Tests knowledge of all concepts in this chapter.",
+            "board":"(diamond) (λx #x #x)",
+            "goal":"(star) (diamond)",
+            "toolbox":"(star) (λx #x)",
+            "fade":{
+                "lambda":2
+            }
+        }
+    ]
+}

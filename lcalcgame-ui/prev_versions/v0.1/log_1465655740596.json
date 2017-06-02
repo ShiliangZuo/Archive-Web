@@ -1,0 +1,761 @@
+﻿[
+  [
+    "startSession",
+    {
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "message": "static_session",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655695991,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 0,
+      "session_seq_id": 0,
+      "quest_detail": "(λx #x) star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697439,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 0,
+      "session_seq_id": 0,
+      "dynamic_quest_id": 1465655695991,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697441,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 1,
+      "session_seq_id": 1,
+      "quest_detail": "(λx #x) (λy #y) star star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697652,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 1,
+      "session_seq_id": 1,
+      "dynamic_quest_id": 1465655697441,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697653,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 2,
+      "session_seq_id": 2,
+      "quest_detail": "(λy) diamond star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697855,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 2,
+      "session_seq_id": 2,
+      "dynamic_quest_id": 1465655697653,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655697857,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 3,
+      "session_seq_id": 3,
+      "quest_detail": "(λx #x) (λy) diamond star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698020,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 3,
+      "session_seq_id": 3,
+      "dynamic_quest_id": 1465655697857,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698021,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 4,
+      "session_seq_id": 4,
+      "quest_detail": "(λx #x #x) star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698392,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 4,
+      "session_seq_id": 4,
+      "dynamic_quest_id": 1465655698021,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698402,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 5,
+      "session_seq_id": 5,
+      "quest_detail": "(λx #x #x) (λy) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698601,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 5,
+      "session_seq_id": 5,
+      "dynamic_quest_id": 1465655698402,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698602,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 6,
+      "session_seq_id": 6,
+      "quest_detail": "(λx #x #x) (λy #y) (λz) star diamond diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698799,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 6,
+      "session_seq_id": 6,
+      "dynamic_quest_id": 1465655698602,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698800,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 7,
+      "session_seq_id": 7,
+      "quest_detail": "(λy #y) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698994,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 7,
+      "session_seq_id": 7,
+      "dynamic_quest_id": 1465655698800,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655698995,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 8,
+      "session_seq_id": 8,
+      "quest_detail": "(λx #x #x #x) (λz #z) diamond diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699209,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 8,
+      "session_seq_id": 8,
+      "dynamic_quest_id": 1465655698995,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699210,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 9,
+      "session_seq_id": 9,
+      "quest_detail": "(λx #x #x #x) (λy #y #y) (λz #z) (λw) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699386,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 9,
+      "session_seq_id": 9,
+      "dynamic_quest_id": 1465655699210,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699389,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 10,
+      "session_seq_id": 10,
+      "quest_detail": "(λx #x #x #x) (λy #y #y) (λz #z) (λw) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699566,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 10,
+      "session_seq_id": 10,
+      "dynamic_quest_id": 1465655699389,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699568,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 11,
+      "session_seq_id": 11,
+      "quest_detail": "(== star star)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699882,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 11,
+      "session_seq_id": 11,
+      "dynamic_quest_id": 1465655699568,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655699883,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 12,
+      "session_seq_id": 12,
+      "quest_detail": "(== _ star) star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700206,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 12,
+      "session_seq_id": 12,
+      "dynamic_quest_id": 1465655699883,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700207,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 13,
+      "session_seq_id": 13,
+      "quest_detail": "(== diamond _) diamond star (λx)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700571,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 13,
+      "session_seq_id": 13,
+      "dynamic_quest_id": 1465655700207,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700573,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 14,
+      "session_seq_id": 14,
+      "quest_detail": "star (== star _) (λx #x #x)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700855,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 14,
+      "session_seq_id": 14,
+      "dynamic_quest_id": 1465655700573,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655700856,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 15,
+      "session_seq_id": 15,
+      "quest_detail": "(== star diamond)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701091,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 15,
+      "session_seq_id": 15,
+      "dynamic_quest_id": 1465655700856,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701093,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 16,
+      "session_seq_id": 16,
+      "quest_detail": "(== _ diamond) star diamond (λx)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701519,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 16,
+      "session_seq_id": 16,
+      "dynamic_quest_id": 1465655701093,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701521,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 17,
+      "session_seq_id": 17,
+      "quest_detail": "(== _ _) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701993,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 17,
+      "session_seq_id": 17,
+      "dynamic_quest_id": 1465655701521,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655701995,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 18,
+      "session_seq_id": 18,
+      "quest_detail": "(== star _) (λx #x #x) diamond diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655702517,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 18,
+      "session_seq_id": 18,
+      "dynamic_quest_id": 1465655701995,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655702519,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "quest_detail": "(== _ _) (λx #x #x) (λy #y #y) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655715319,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "(λx #x #x) (λy #y #y) diamond (== star _)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655715322,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "reduction-lambda",
+      "action_detail": "{\"before\":\"(λx #x #x)\",\"applied\":\"(== star _)\",\"after\":\"((== star _) (== star _))\"}",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655715322,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "(== star _) (== star _) (λy #y #y) diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655719502,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "(== star _) (λy #y #y) diamond (== _ _) star",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655719503,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "reduction-lambda",
+      "action_detail": "{\"before\":\"(λy #y #y)\",\"applied\":\"star\",\"after\":\"(star star)\"}",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655719504,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "(== star _) star star diamond (== _ _)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655737319,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "(== star star) (== star diamond)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655737319,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "reduction",
+      "action_detail": "{\"before\":\"(== star star)\",\"after\":\"true\"}",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655738161,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "state-save",
+      "action_detail": "true (== star diamond)",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655738161,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "reduction",
+      "action_detail": "{\"before\":\"(== star diamond)\",\"after\":\"false\"}",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "action",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655738162,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "action_id": "victory",
+      "action_detail": "{\"final_state\":\"true false\"}",
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "endTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655739443,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 19,
+      "dynamic_quest_id": 1465655702519,
+      "error_message": "This log failed to upload to the server."
+    }
+  ],
+  [
+    "startTask",
+    {
+      "game_id": 7017017,
+      "client_timestamp": 1465655739445,
+      "version_id": 1,
+      "user_id": 1465655695977,
+      "session_id": 1465655695977,
+      "quest_id": 19,
+      "session_seq_id": 20,
+      "quest_detail": "(== _ _) (λx #x #x) (λy #y #y) star diamond",
+      "error_message": "This log failed to upload to the server."
+    }
+  ]
+]

@@ -1,0 +1,42 @@
+{
+    "chapterName":"Chapter 5",
+    "description":"Introduction to bags",
+    "levels": [
+        {
+            "description":"Introduces the bag",
+            "board":"(bag) (star)",
+            "goal":"(bag star)",
+            "toolbox":""
+        },
+        {
+            "description": "Can put multiple items in a bag.",
+            "board": "(bag star) (star) (star)",
+            "goal": "(bag star star star)",
+            "toolbox": ""
+        },
+        {
+            "description":"We can remove things from a bag",
+            "board":"(bag rect star)",
+            "goal":"(bag star) (rect)",
+            "toolbox":""
+        },
+        {
+            "description": "Reinforces: Can spill items out of a bag. Can use bag as input.",
+            "board": "(bag star star star) (λx /triangle) (λx /triangle)",
+            "goal": "(star) (star) (triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "Bags themselves can be destroyed, along with all items in them.",
+            "board": "(triangle) (circle) (rect) (λx /star)",
+            "goal": "star",
+            "toolbox": "(bag)"
+        },
+        {
+            "description": "You can compare bags (as multisets).",
+            "board": "(bag star star) (== /(bag star star star) _)",
+            "goal": "true",
+            "toolbox": "(triangle) (star) (rect)"
+        }
+    ]
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>That programming game</title>
+
+        <!-- Third-party dependencies -->
+        <script src="lib/FileSaver.min.js" charset="utf-8"></script>
+        <!-- Write a level modal popover -->
+        <link rel="stylesheet" href="lib/jquery-ui.min.css" media="screen" charset="utf-8">
+
+        <!-- Loading library (Pace.js) and its style -->
+        <link rel="stylesheet" href="lib/pace.css" media="screen" charset="utf-8">
+        <script src="lib/pace.min.js"></script>
+
+        <!-- Audio -->
+        <script src="lib/lowLag.js"></script>
+        <script src="lib/sm2/js/soundmanager2.js"></script>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+        <!-- JQuery UI and Popover -->
+        <script src="lib/jquery-ui.min.js" charset="utf-8"></script>
+        <script src="lib/jquery-ui.structure.min.css" charset="utf-8"></script>
+        <script src="lib/writeALevelPopup.js"></script>
+        <script src="lib/progressBar.js"></script>
+
+        <!-- Game dependencies -->
+        <script src="build/logger.js" charset="utf-8"></script>
+        <script src="build/util.js" charset="utf-8"></script>
+        <script src="build/vis.js" charset="utf-8"></script>
+        <script src="build/structs.js" charset="utf-8"></script>
+        <script src="build/lambda.js" charset="utf-8"></script>
+        <script src="build/lambda_expr.js" charset="utf-8"></script>
+        <script src="build/funcs.js" charset="utf-8"></script>
+        <script src="build/concrete_faded_exprs.js" charset="utf-8"></script>
+        <script src="build/event.js" charset="utf-8"></script>
+        <script src="build/game.js" charset="utf-8"></script>
+        <script src="build/animate.js" charset="utf-8"></script>
+        <script src="build/image.js" charset="utf-8"></script>
+        <script src="build/toolbox.js" charset="utf-8"></script>
+        <script src="build/resource.js" charset="utf-8"></script>
+        <script src="build/effect.js" charset="utf-8"></script>
+        <script src="build/fademap.js" charset="utf-8"></script>
+        <style media="screen">
+            #canvas {
+                padding: 0;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            #progressBarContainer {
+                display: block;
+                width:800px;
+                height:4px;
+                background-color: white;
+            }
+            #lvl_num_visible_box {
+                color:gray;
+            }
+            #progressBar {
+                display: block;
+                width:5px;
+                height:100%;
+                background-color: gold;
+            }
+            .textOverlay {
+                font-family: Arial, sans-serif;
+            }
+            #endscreen {
+                position: absolute;
+                display: none;
+            }
+            #help {
+                position: absolute;
+                display: none;
+
+                -moz-user-select: none;
+               -khtml-user-select: none;
+               -webkit-user-select: none;
+                user-select: none;
+                cursor: default;
+                pointer-events: none;
+            }
+            .textOverlay > h1 {
+                color: Salmon;
+            }
+            .centered {
+                padding: 0;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+            .shadow {
+               -moz-box-shadow:    inset 0 0 10px #000000;
+               -webkit-box-shadow: inset 0 0 10px #000000;
+               box-shadow:         inset 0 0 10px #000000;
+            }
+            .expr_input {
+                font-family: Consolas, sans-serif;
+            }
+        </style>
+        <script type="text/javascript">
+
+        var __SHOW_DEV_INFO = false;
+
+        var GLOBAL_DEFAULT_CTX = null;
+        var GLOBAL_DEFAULT_SCREENSIZE = null;
+        var stage;
+        var canvas;
+        var level_idx = 0;
+        function init() {
+
+            // -- TEST CORS --
+
+            $.ajax({
+                type: "GET",
+                url: 'http://gdiac.cs.cornell.edu/research_games/page_load.php',
+                data:{game_id:7017018, client_timestamp:1},
+                async:true,
+                dataType : 'jsonp',   //you may use jsonp for cross origin request
+                crossDomain:true,
+                success: function(data, status, xhr) {
+                    console.log('balh');
+                }
+            });
+
+            /*
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+                if (req.readyState == 4 && req.status == 200) {
+                    console.log('REC:', req.responseText);
+                }
+                else if (req.readyState == 4) {
+                    console.error('@ HTTP_GET: Response status: ' + req.status);
+                    onFail();
+                }
+            }
+            req.open("GET", 'http://gdiac.cs.cornell.edu/research_games/page_load.php', true); // true for asynchronous
+            req.send(null);*/
+
+            setWriteALevelPopup("writeALevel", 'write-level-form');
+
+            Resource.initAudio();
+
+            if (!__SHOW_DEV_INFO)
+                $('#devinfo').hide();
+
+            if (__GET_PARAMS) {
+                var start_from = __GET_PARAMS.level;
+                var fade_level = __GET_PARAMS.fade;
+                var playerId = __GET_PARAMS.player;
+                if (start_from) {
+                    console.log(start_from);
+                    level_idx = parseInt(start_from);
+                }
+                if (playerId) {
+                    Logger.playerId = playerId;
+                }
+                if (fade_level && fade_level > 0) {
+                    ExprManager.setDefaultFadeLevel(parseInt(fade_level));
+                }
+            }
+
+            // Start a new log session (creating userID as necessary),
+            // and then begin the game.
+            Logger.startSession().then(function (userinfo) {
+                return loadChapterSelect();
+            }).then(initBoard);
+        }
+
+        function loadCustomLevel(lvl_desc, goal_desc) {
+            stage = Resource.buildLevel( { board:lvl_desc, goal:goal_desc, toolbox:"" }, canvas );
+            stage.update();
+            stage.draw();
+        }
+        function levelChanged(val) {
+            if (!isNaN(parseInt(val))) {
+                if (val < 0) val = 0;
+                else if (val >= Resource.level.length) val = Resource.level.length - 1;
+                level_idx = val;
+                initBoard();
+            }
+        }
+
+        function clearStage() {
+            if (stage) {
+                stage.clear();
+                stage.invalidate();
+                delete stage;
+            }
+
+            if (AnimationUpdateLoop) {
+                AnimationUpdateLoop.clear();
+            }
+        }
+
+        function initBoard() {
+
+            canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+
+                clearStage();
+
+                hideHelpText();
+                hideEndGame();
+                updateProgressBar();
+
+                GLOBAL_DEFAULT_CTX = canvas.getContext('2d');
+                GLOBAL_DEFAULT_SCREENSIZE = canvas.getBoundingClientRect();
+                document.getElementById('lvl_num').value = level_idx + '';
+                document.getElementById('lvl_num_visible').innerHTML = level_idx + '';
+                document.getElementById('lvl_desc').innerHTML = Resource.level[level_idx].description || '(No description.)';
+
+                stage = Resource.buildLevel(Resource.level[level_idx], canvas);
+
+                Logger.transitionToTask(level_idx, stage.toString()).catch(function (err) {
+                    //console.error(err);
+                });
+
+                // One-time only blink of lambda holes on first level.
+                if (level_idx === 0) {
+                    var holes = stage.getNodesWithClass(FadedES6LambdaHoleExpr, [], true);
+                    if (holes.length > 0) { // This is the 'faded' (completely abstract) version of the game.
+                        showHelpText();
+                        var runCount = 0;
+                        var waitBlink = function (waittime, blinktime, cancelCond) {
+                            Animate.wait(waittime).after(function() {
+                                if (cancelCond()) {
+                                    return;
+                                }
+                                else Animate.blink(holes, blinktime, [1,1,0], 1).after(function() {
+                                    runCount++;
+                                    waitBlink(waittime, blinktime, cancelCond);
+                                });
+                            });
+                        };
+                        waitBlink(3000, 1500, function() {
+                            return !(holes[0].stage) || !(holes[0].parent) || stage.ranCompletionAnim || runCount > 1;
+                        });
+                    }
+                }
+
+                stage.update();
+                stage.draw();
+
+                // This fixes some render bugs. Not exactly sure why.
+                stage.draw();
+            }
+        }
+
+        function initEndGame() {
+            canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+
+                clearStage();
+                updateProgressBar();
+
+                var size = canvas.getBoundingClientRect();
+                $('#endscreen').css( { top:size.height / 3.0 } );
+                $('#endscreen').show();
+
+                Logger.log('game-complete', {});
+
+                Resource.play('game-complete');
+            }
+        }
+        function hideEndGame() {
+            $('#endscreen').hide();
+        }
+
+        function showHelpText(txt) {
+            var help = $('#help');
+            var size = canvas.getBoundingClientRect();
+            help.css( { top:size.height / 1.3, color:'#AAA' } );
+            if (txt) help.text(txt);
+            help.show();
+        }
+        function hideHelpText() {
+            $('#help').hide();
+        }
+
+        function toggleDevInfo() {
+            var devinfo = $('#devinfo');
+            var txt = $('#devInfoBtnText');
+            if (devinfo.is(':visible')) {
+                devinfo.hide();
+                txt.text('Show');
+            } else {
+                devinfo.show();
+                txt.text('Hide');
+            }
+        }
+
+        function updateProgressBar() {
+            setProgressBar('progressBar', 'progressBarContainer', level_idx / (Resource.level.length - 1));
+        }
+        function prev() {
+            if (!Logger.sessionBegan()) return;
+            if (level_idx === 0) initBoard();
+            else {
+                level_idx--;
+                initBoard();
+            }
+        }
+        function next() {
+            if (!Logger.sessionBegan()) return;
+            if (level_idx === Resource.level.length-1) {
+                initEndGame();
+            }
+            else {
+                level_idx++;
+                initBoard();
+            }
+        }
+        function undo() {
+            if (!Logger.sessionBegan()) return;
+            stage.restoreState();
+        }
+
+        function loadChapterSelect() {
+            var sel = document.getElementById("chapterSelect");
+            removeOptions(sel); // clear old options.
+            return Resource.getChapters().then( function(chapters) {
+                chapters.forEach(function (chap) {
+                    var option = document.createElement("option");
+                    option.text = chap.description;
+                    option.value = chap.name;
+                    sel.add(option);
+                });
+                return new Promise(function(resolve, reject) {
+                    resolve();
+                });
+            } );
+        }
+        function gotoChapter() {
+            var sel = document.getElementById('chapterSelect');
+            var selected_chapter = sel.options[sel.selectedIndex].value;
+            level_idx = Resource.getChapter(selected_chapter).startIdx;
+            initBoard();
+        }
+
+        </script>
+    </head>
+
+    <body onload="init()" bgcolor="lightgray">
+
+        <div id="progressBarContainer" class="centered shadow">
+            <div id="progressBar">
+            </div>
+        </div>
+
+        <div id="canvasContainer">
+            <canvas id="canvas" onmousedown="" width="800" height="600" style="background-color:#EEE;"></canvas>
+            <div id="help" class="textOverlay centered">
+                <h3>Drop the star into the (x).</h3>
+            </div>
+            <div id="endscreen" class="textOverlay centered">
+                <h1>Thanks for playing!</h1>
+                <p>
+                    If you have any feedback or questions, <br /> contact us at iaa32 - at - cornell.edu
+                </p>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="centered" id="lvl_num_visible_box">
+            Level #<span id="lvl_num_visible">0</span>
+        </div>
+
+        <div id="devinfo">
+
+            <div id="state" class="centered">
+                <button onclick="undo()">Undo</button>
+            </div>
+
+            <div id="duplicate_buttons" class="centered">
+                <button onclick="prev()">Prev</button>
+                <button onclick="initBoard()">Reset</button>
+                <button onclick="next()">Next</button>
+            </div>
+
+            <div id="explanation" class="centered">
+                <p>
+                    Level #<input id="lvl_num" type="text" name="level" value="0" size=6 onchange="levelChanged(this.value)"><br />
+                    <span style="color:grey;"><span id="lvl_desc">[description]</span></span> <br />
+                    Jump to: <select id="chapterSelect" name="chapter" onchange="gotoChapter()">
+                    </select>
+                </p>
+                <p>
+                    Drop expressions into <span style="color:#666;">holes</span> inside other expressions. <br />
+                    If an expression blinks <span style="color:ForestGreen;">green</span>, click it to reduce.
+                </p>
+            </div>
+
+            <div class="centered">
+                <p>
+                    <button id="writeALevel">Write your own level!</button>
+                </p>
+
+                <div id="write-level-form" title="Write a level">
+                  <p class="validateTips">Refer to <a href="writing_levels.html" target="blank">this sheet</a> for more info.</p>
+
+                  <form>
+                    <fieldset>
+                      <label for="name">Level:</label>
+                      <input type="text" name="name" id="level_expr_input" value="(λx #x) (star)" class="expr_input" size="45"> <br />
+                      <label for="email">Goal:</label>
+                      <input type="text" name="email" id="goal_expr_input" value="(star)" class="expr_input" size="45">
+
+                      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                    </fieldset>
+                  </form>
+
+                  <p>
+                      Or upload a JSON spec for a new chapter:
+                  </p>
+                  <input id="add_chapter_json" value="asdad" type="file" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="centered">
+        </div>
+
+        <div id="logdownload" class="centered">
+            <br />
+            <button onclick="toggleDevInfo()"><span id="devInfoBtnText">Show</span> dev info box.</button>
+            <button onclick="Logger.download()">Download log data.</button>
+        </div>
+    </body>
+</html>

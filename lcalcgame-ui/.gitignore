@@ -1,0 +1,4 @@
+node_modules
+log_analyzer/nodejs-log-listener/userlogs/*
+resources/graphics/assets.png
+resources/graphics/starboy/menu-assets.png

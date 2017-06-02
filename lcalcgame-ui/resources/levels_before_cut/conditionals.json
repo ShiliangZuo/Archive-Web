@@ -1,0 +1,90 @@
+{
+    "chapterName":"Chapter 4",
+    "description":"Conditionals",
+    "levels": [
+        {
+            "description": "intro to if; true",
+            "board": "(true) (if _b /star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "intro to if; false",
+            "board": "(false) (if _b /star) (rect)",
+            "goal": "rect",
+            "toolbox": ""
+        },
+        {
+            "description": "intro to if; if as selective destruction",
+            "board": "(if /false /star) (if /false _) (star) (rect)",
+            "goal": "rect",
+            "toolbox": ""
+        },
+        {
+                "description":"Choice of boolean",
+                "board":"(if _b /star) ",
+                "goal":"(star)",
+                "toolbox":"(true) (false)"
+        },
+        {
+            "description": "intro to booleans with conditionals",
+            "board": "(== /triangle _) (if _b /star)",
+            "goal": "star",
+            "toolbox": "(triangle) (rect)"
+        },
+        {
+                "description":"conditional as selective destruction",
+                "board":"(if _ star) (diamond)",
+                "goal":"(diamond)",
+                "toolbox":"(true) (false)"
+        },
+        {
+            "description": "harder booleans with conditionals",
+            "board": "(== /star _) (if _b star)",
+            "goal": "star",
+            "toolbox": "(rect) (triangle) (circle)"
+        },
+        {
+            "description": "intro to if; selective destruction + replication",
+            "board": "(if _b _) (true) (false) (λx #x #x) (star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "intro to if; selective destruction extended",
+            "board": "(if _b /star) (if _b /triangle) (λx #x #x) (== /star /star) (== /circle /triangle)",
+            "goal": "triangle",
+            "toolbox": ""
+        },
+        {
+            "description": "counter-intuitive selective destruction",
+            "board": "(if _b star) (== /triangle triangle) (== /star star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "conditionals inside booleans; i.e. ternary operator",
+            "board": "(== /star _) (if _b /star) (true)",
+            "goal": "true",
+            "toolbox": ""
+        },
+        {
+            "description": "Conditions, booleans, and replication. (Yes, this level is beatable.)",
+            "board": "(if _b _) (star) (triangle) (triangle) (== _ _) (λx #x #x)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "Conditionals, booleans, and one-param functions.",
+            "board": "(star) (== #x /star) (λx /(if _b /triangle))",
+            "goal": "triangle",
+            "toolbox": ""
+        },
+        {
+            "description": "**Loop-less, bag-less filter.**",
+            "board": "(star) (triangle) (diamond)",
+            "goal": "(star)",
+            "toolbox": "(λx /(if (== #x /star) #x)) (λx #x #x #x)"
+        }
+    ]
+}

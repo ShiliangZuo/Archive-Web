@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Progression Chart</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="build/util.js" charset="utf-8"></script>
+    <script src="build/core/resource.js" charset="utf-8"></script>
+    <script src="build/frame/loadresources.js" charset="utf-8"></script>
+    <style media="screen">
+        .levels td {
+            width:400px;
+            border: 1px solid lightgray;
+            padding: 2px;
+        }
+        td {
+            width:300px;
+            border: 1px solid lightgray;
+            padding: 2px;
+        }
+        tr {
+            cellpadd:0px;
+        }
+        p {
+            width:60%;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        .cell:hover {
+            cursor: pointer;
+        }
+        #gannt td {
+            margin:0;
+            padding:0;
+        }
+    </style>
+    <script src="build/extra/writing_levels.js" charset="utf-8"></script>
+    <body onload="initGantt();">
+
+        <table id="gannt"></table>
+
+    </body>
+</html>

@@ -1,0 +1,66 @@
+{
+    "chapterName":"Chapter 2",
+    "description":"Boolean equality",
+    "levels": [
+        {
+            "description": "Introduces concept: Reduction; Boolean comparison.",
+            "board": "(== /star /star)",
+            "goal": "true",
+            "toolbox": ""
+        },
+        {
+            "description": "Introduces concept: Holes.",
+            "board": "(== /star _) (star)",
+            "goal": "true",
+            "toolbox": ""
+        },
+        {
+            "description": "Introduces concept: Choice of true and false.",
+            "board": "(== /diamond _)",
+            "goal": "true",
+            "toolbox": "(diamond) (star)"
+        },
+        {
+            "description": "Binding on replication (application).",
+            "board": "(star) (== /star _) (λx #x #x)",
+            "goal": "(true) (true)",
+            "toolbox": ""
+        },
+        {
+            "description": "Introduces false.",
+            "board": "(== /star /diamond)",
+            "goal": "false",
+            "toolbox": ""
+        },
+        {
+            "description": "Introduces concept: More than one free slot. Also choice of false.",
+            "board": "(== _ _) (star)",
+            "goal": "false",
+            "toolbox": "(diamond) (star)"
+        },
+        {
+            "description": "Partial application.",
+            "board": "(== /star _) (λx #x #x) (diamond) (diamond)",
+            "goal": "(false) (false)",
+            "toolbox": ""
+        },
+        {
+            "board": "(== /star _)",
+            "description": "\"Applying function to boolean\"",
+            "goal": "(true)(true)",
+            "toolbox": "(λx #x #x)(star)(rect)(λx #x)"
+        },
+        {
+            "description": "Writing a boolean expression from scratch.",
+            "board": "(star)",
+            "goal": "true",
+            "toolbox": "(== _ _) (λx #x #x) (diamond) (λx #x)"
+        },
+        {
+            "description": "Our favorite hard level :)",
+            "board": "(== _ _) (λx #x #x) (λx #x #x) (star) (diamond)",
+            "goal": "(true) (false)",
+            "toolbox": ""
+        }
+    ]
+}

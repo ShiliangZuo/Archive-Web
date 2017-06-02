@@ -1,0 +1,96 @@
+{
+    "chapterName":"Chapter 6",
+    "description":"Introduction to Map",
+    "levels": [
+        {
+            "description": "Identity with map",
+            "board": "(map /(λx #x) /(bag star star star))",
+            "goal": "(star) (star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Can place bag as initializer",
+            "board": "(map /(λx #x) __) (bag triangle triangle triangle triangle)",
+            "goal": "(triangle) (triangle) (triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "Replication with map",
+            "board": "(map /(λx #x #x) __) (bag) (star) (star) (star)",
+            "goal": "(star) (star) (star) (star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Pipes in map can come out of other types of expressions",
+            "board": "(map /(λx /(== #x /rect)) __) (bag)",
+            "goal": "(true)",
+            "toolbox": "(rect) (triangle)"
+        },
+        {
+            "description": "Basic transform",
+            "board": "(map /(λx /star) __) (bag) (rect) (rect) (rect)",
+            "goal": "(star) (star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Basic transform, selective",
+            "board": "(map /(λx /triangle) __) (bag) (star) (rect) (circle)",
+            "goal": "(star) (triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "Inception.",
+            "board": "(map /(λx /star) __) (bag star star star star star star) (bag star star star star star) (bag star star) (bag star) (bag star star star star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "Duplication",
+            "board": "(map /(λx #x #x) __) (bag) (star) (star)",
+            "goal": "(star) (star) (star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Selective duplication",
+            "board": "(map /(λx #x #x) __) (bag) (rect) (rect)",
+            "goal": "(rect) (rect) (rect)",
+            "toolbox": ""
+        },
+        {
+            "board": "(map _ __)",
+            "description": "\"Building a duplicator.\"",
+            "goal": "(star)(star)",
+            "toolbox": "(λx #x)(λx #x #x) (bag) (star)"
+        },
+        {
+            "description": "Player writes a constant transform.",
+            "board": "(map /(λx /(if /true _)) __) (bag) (triangle) (star) (circle) (rect)",
+            "goal": "(triangle) (triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "The Empty Bag applied to Map reduces to nothing.",
+            "board": "(map /(λx /(if /true /star)) __) (bag) (triangle) (triangle)",
+            "goal": "(triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "Selective Destruction",
+            "board": "(map /(λx /(if /false #x)) __) (bag) (star) (rect) (rect) (star) (triangle) (star) (circle) (circle)",
+            "goal": "(triangle) (circle) (rect)",
+            "toolbox": ""
+        },
+        {
+            "description":"Introducing, the filter function!",
+            "board":"(map /(λx /(if (== #x /star) /#x)) (bag star diamond circle))",
+            "goal":"(star)",
+            "toolbox":""
+        },
+        {
+            "description": "Filter with one line missing. Must understand function in order to win.",
+            "board": "(map /(λx /(if /(== #x _) #x)) __) (star) (diamond) (star)",
+            "goal": "star",
+            "toolbox": "(bag (triangle) (triangle) (circle))"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "chapterName":"Post-test",
+    "description":"Eric's post-test, v1",
+    "levels": [
+        {
+            "description": "Binding variable and function application",
+            "board": " (λx _) (star) (#_x)",
+            "goal": "(star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Functions are first-class",
+            "board": "(λx #x #x) (λx #x) (star)",
+            "goal": "(star)",
+            "toolbox": ""
+        },
+        {
+            "description": "Boolean definition",
+            "board": "(== _ /star) (star)",
+            "goal": "(true)",
+            "toolbox": ""
+        },
+        {
+            "description": "Applying function to Boolean",
+            "board": "(== /star _) (λx #x #x) (diamond)",
+            "goal": "(false) (false)",
+            "toolbox": ""
+        },
+        {
+            "description": "Boolean in the function body, binding variable",
+            "board": "(λx /(== _ _))(star)(#_x)(star)",
+            "goal": "(true)",
+            "toolbox": ""
+        },
+        {
+            "description": "Boolean in if-else",
+            "board": "(== /rect _) (if _b /star) (rect)",
+            "goal": "(star)",
+            "toolbox": ""
+        },
+        {
+            "description": "if-else in function body, binding variable in if else branch",
+            "board": "(λx /(if _b _)) (rect) (true)(#_x)",
+            "goal": "(rect)",
+            "toolbox": ""
+        },
+        {
+            "description": "if-else in function body, binding variable in Boolean part of If-else",
+            "board": "(λx _) (rect)(if _b /star)(== _ /rect)(#_x)",
+            "goal": "(star)",
+            "toolbox": ""
+        },
+        {
+            "description": "if-else in function body, binding variable in both Boolean part and the if-else branch",
+            "board": "(λx _) (rect)(if _b _)(== _ /rect)(#_x)(#_x)",
+            "goal": "(rect)",
+            "toolbox": ""
+        },
+        {
+            "description": "Primitives, Boolean, If-else, Function (all expressions) can be put in the bag(collection)",
+            "board": "(bag) (star) (λx #x)(== /rect /rect) (if (true) /(triangle))",
+            "goal": "(bag (star) (λx #x)(== /rect /rect) (if (true) /(triangle)))",
+            "toolbox": ""
+        },
+        {
+            "description": "bag can be in the boolean and if-else, a function can apply to a bag",
+            "board": "(bag) (star) (λx #x)(== /(bag star) __) (if _b /(bag star))",
+            "goal": "(bag star)",
+            "toolbox": ""
+        },
+        {
+            "description": "maps each item(expressions) of the collection (bag) through a function",
+            "board": "(map /(λx #x #x) __) (bag) (star) (triangle)",
+            "goal": "(star) (star) (triangle) (triangle)",
+            "toolbox": ""
+        },
+        {
+            "description": "The filter question",
+            "board": "(map /(λx _) __) (bag star star star triangle triangle) (== _ /star) (if _b _) (#_x) (#_x)",
+            "goal": "(star)(star)(star)",
+            "toolbox": ""
+        }
+    ]
+}

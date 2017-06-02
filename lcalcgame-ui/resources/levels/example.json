@@ -1,0 +1,70 @@
+{
+    "chapterName":"Smorgasbord of levels in Reduct language",
+    "description":"Examples of a bunch of different concepts in Reduct, for level writing.",
+    "levels": [
+        {
+            "description": "Equality test example",
+            "board": "(== _ _) (star)",
+            "goal": "false",
+            "toolbox": "(diamond) (star)",
+            "fade":{
+                "lambda":3,
+                "var":3,
+                "hole":3,
+                "lambda_abstraction": 0,
+                "bag": 0,
+                "map": 0
+            }
+        },
+        {
+            "description":"Identity example",
+            "board":"(λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description": "Conditionals with booleans example",
+            "board": "(== /triangle _) (if _b /star)",
+            "goal": "star",
+            "toolbox": "(triangle) (rect)"
+        },
+        {
+            "description": "Binding example",
+            "board": "(λx /(== #x _))",
+            "goal": "true",
+            "toolbox": "(star) (rect) (star) (rect)"
+        },
+        {
+            "description": "Can put multiple items in a bag.",
+            "board": "(bag star) (star) (star)",
+            "goal": "(bag star star star)",
+            "toolbox": ""
+        },
+        {
+            "description":"Fading bags into arrays",
+            "board":"(bag) (star) (star)",
+            "goal":"(bag star star)",
+            "toolbox":"",
+            "fade": {
+                "bag":1
+            }
+        },
+        {
+            "description": "Map example",
+            "board": "(map /(λx /(== #x /circle)) __)",
+            "goal": "(false)(false)(true)",
+            "toolbox": "(bag triangle triangle triangle) (bag triangle star rect) (bag star triangle circle)"
+        },
+        {
+            "description": "Define example (deceptive naming)",
+            "board": "(define /star `rect) (define /rect `star) (notch) (notch)",
+            "goal": "(star) (star)"
+        },
+        {
+            "description": "Array object example",
+            "goal": "(bag /star /star) (bag /rect /rect)",
+            "board": "(arrayobj (bag /rect)) (arrayobj (bag /rect /rect)) (arrayobj (bag /rect /rect /rect))",
+            "toolbox": "(λx /triangle) (λx #x) (λx /star)"
+        }
+    ]
+}

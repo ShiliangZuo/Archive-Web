@@ -1,0 +1,102 @@
+{
+    "chapterName":"Chapter 3",
+    "description":"Constant and One-Parameter Functions",
+    "levels": [
+        {
+            "description": "Introduces concept: Pipes outside of pure lambdas.",
+            "board": "(λx /(== #x #x)) (star)",
+            "goal": "true",
+            "toolbox": ""
+        },
+        {
+            "description": "Reinforces concept: Pipes outside of pure lambdas.",
+            "board": "(λx /(== #x /rect)) (λx /(== /star #x))",
+            "goal": "(true) (true)",
+            "toolbox": "(triangle) (star) (rect)"
+        },
+        {
+            "description": "Choice of function.",
+            "board": "(star)",
+            "goal": "false",
+            "toolbox": "(λx /(== #x /rect)) (λx /(== #x /star))"
+        },
+        {
+            "description": "Constructing a function.",
+            "board": "(λx /(== #x _))",
+            "goal": "true",
+            "toolbox": "(star) (rect) (star) (rect)"
+        },
+        {
+            "description": "Must be solved with free binding.",
+            "board": "(λx /(== _ _))",
+            "goal": "true",
+            "toolbox": "(star) (#_x) (#_x) (triangle)"
+        },
+        {
+            "description": "Replication with free binding.",
+            "board": "(λx _ _) (#_x) (#_x)",
+            "goal": "(triangle) (triangle)",
+            "toolbox": "(triangle) (star) (rect)"
+        },
+        {
+            "description": "Introduces concept: Constant function.",
+            "board": "(λx /star) (diamond)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "Introduces concept: Constant function; selective.",
+            "board": "(λx diamond) (star)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx /diamond) (λx /star)",
+            "goal": "diamond",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx /diamond) (λx /star) (λx /diamond) (diamond) (λx #x)",
+            "goal": "star",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx /star) (diamond) (diamond) (λx #x #x)",
+            "goal": "(star) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx /diamond) (star) (star) (λx #x #x #x) (λx #x)",
+            "goal": "(diamond) (star)",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx star) (diamond) (diamond) (λx #x #x)",
+            "goal": "(rect) (rect) (rect)",
+            "toolbox": ""
+        },
+        {
+            "description": "Binding statements.",
+            "board": "(λx star) (== #x #x)",
+            "goal": "true",
+            "toolbox": ""
+        },
+        {
+            "description": "",
+            "board": "(λx triangle) (star) (== #x _)",
+            "goal": "false",
+            "toolbox": ""
+        },
+        {
+            "description": "The same function, different inputs, can have different output.",
+            "board": "(λx #x #x) (λx star) (== #x /diamond) (diamond)",
+            "goal": "(true) (false)",
+            "toolbox": ""
+        }
+    ]
+}

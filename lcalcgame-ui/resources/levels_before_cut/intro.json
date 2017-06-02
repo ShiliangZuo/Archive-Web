@@ -1,0 +1,66 @@
+{
+    "chapterName":"Chapter 1",
+    "description":"Identity, Destruction, and Replication",
+    "levels": [
+        {
+            "description":"Introduces concept: Identity.",
+            "board":"(λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Introduces concept: Identity.",
+            "board":"(λx #x) (λx #x) (star) (star)",
+            "goal":"(star) (star)",
+            "toolbox":""
+        },
+        {
+            "description":"Introduces concept: Identity.",
+            "board":"(λx #x) (λx #x) (λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Introduces concept: Toolbox. (*used to be deletion)",
+            "board":"",
+            "goal":"star",
+            "toolbox":"(diamond) (star)"
+        },
+        {
+            "description":"Goal can include multiple items. Also introduces objective other than Star.",
+            "board":"(diamond) (λx #x)",
+            "goal":"(diamond) (diamond)",
+            "toolbox":"(diamond) (star)"
+        },
+        {
+            "description":"Introduces concept: Replication.",
+            "board":"(λx #x #x) (star)",
+            "goal":"(star) (star)",
+            "toolbox":""
+        },
+        {
+            "description":"Toolbox can hold expressions.",
+            "board":"",
+            "goal":"(diamond) (diamond)",
+            "toolbox":"(star) (diamond) (λx #x #x)"
+        },
+        {
+            "description":"Functions are first-class!",
+            "board":"(λx #x #x #x) (λx #x) (star)",
+            "goal":"star",
+            "toolbox":""
+        },
+        {
+            "description":"Selective function application.",
+            "board":"(diamond) (λx #x #x)",
+            "goal":"(star) (diamond)",
+            "toolbox":"(star) (λx #x)"
+        },
+        {
+            "description":"A harder puzzle using prior concepts.",
+            "board":"(λx #x #x) (λx #x)",
+            "goal":"(star) (star) (star)",
+            "toolbox":"(λx #x #x #x) (star) (diamond)"
+        }
+    ]
+}

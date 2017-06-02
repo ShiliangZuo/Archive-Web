@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
+        <title>That programming game</title>
+        <script src="lib/FileSaver.min.js" charset="utf-8"></script>
+        <script src="lib/writeALevelPopup.js"></script>
+
+        <!-- Game dependencies -->
+        <script src="build/logger.js" charset="utf-8"></script>
+        <script src="build/util.js" charset="utf-8"></script>
+        <script src="build/vis.js" charset="utf-8"></script>
+        <script src="build/structs.js" charset="utf-8"></script>
+        <script src="build/lambda.js" charset="utf-8"></script>
+        <script src="build/lambda_expr.js" charset="utf-8"></script>
+        <script src="build/concrete_faded_exprs.js" charset="utf-8"></script>
+        <script src="build/funcs.js" charset="utf-8"></script>
+        <script src="build/event.js" charset="utf-8"></script>
+        <script src="build/game.js" charset="utf-8"></script>
+        <script src="build/animate.js" charset="utf-8"></script>
+        <script src="build/image.js" charset="utf-8"></script>
+        <script src="build/resource.js" charset="utf-8"></script>
+        <script src="build/effect.js" charset="utf-8"></script>
+        <style media="screen">
+            body {
+                margin: 0;
+            }
+            #canvas {
+                padding: 0;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            .centered {
+                padding: 0;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+            .expr_input {
+                font-family: Consolas, sans-serif;
+            }
+        </style>
+        <script type="text/javascript">
+
+        var GLOBAL_DEFAULT_CTX = null;
+        var GLOBAL_DEFAULT_SCREENSIZE = null;
+        var stage;
+        var canvas;
+        var level_idx = 35;
+        function init() {
+
+            setWriteALevelPopup("writeALevel", 'write-level-form');
+
+            if (__GET_PARAMS) {
+                var start_from = __GET_PARAMS.level;
+                var faded_lambdas = __GET_PARAMS.faded;
+                if (start_from) {
+                    console.log(start_from);
+                    level_idx = parseInt(start_from);
+                }
+                if (faded_lambdas && faded_lambdas.toLowerCase() === 'true') {
+                    __FADED_LAMBDAS = true;
+                } else __FADED_LAMBDAS = false;
+            }
+
+            // Start a new log session (creating userID as necessary),
+            // and then begin the game.
+            Logger.startSession().then(function (userinfo) {
+                loadChapterSelect();
+                initBoard();
+            });
+        }
+
+        function loadCustomLevel(lvl_desc, goal_desc) {
+            stage = Resource.buildLevel( [lvl_desc, goal_desc], canvas );
+            stage.update();
+            stage.draw();
+        }
+
+        function initBoard() {
+
+            canvas = document.getElementById('canvas');
+
+            // Width 100% and height 100%
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                GLOBAL_DEFAULT_SCREENSIZE = canvas.getBoundingClientRect();
+            }
+
+            if (canvas.getContext) {
+
+                // Resize canvas during a mobile phone orientation change.
+                window.addEventListener('resize', resizeCanvas, false);
+                window.addEventListener('orientationchange', resizeCanvas, false);
+                resizeCanvas();
+
+                GLOBAL_DEFAULT_CTX = canvas.getContext('2d');
+                GLOBAL_DEFAULT_SCREENSIZE = canvas.getBoundingClientRect();
+                document.getElementById('lvl_num').innerHTML = level_idx + '';
+                document.getElementById('lvl_desc').innerHTML = Resource.level[level_idx][2] || '(No description.)';
+
+                stage = Resource.buildLevel(Resource.level[level_idx], canvas);
+
+                Logger.transitionToTask(level_idx, stage.toString()).catch(function (err) {
+                    //console.error(err);
+                });
+
+                stage.update();
+                stage.draw();
+            }
+        }
+        function prev() {
+            if (!Logger.sessionBegan()) return;
+            if (level_idx === 0) initBoard();
+            else {
+                level_idx--;
+                initBoard();
+            }
+        }
+        function next() {
+            if (!Logger.sessionBegan()) return;
+            if (level_idx === Resource.level.length-1) initBoard();
+            else {
+                level_idx++;
+                initBoard();
+            }
+        }
+        function undo() {
+            if (!Logger.sessionBegan()) return;
+            stage.restoreState();
+        }
+
+        function loadChapterSelect() {
+            var sel = document.getElementById("chapterSelect");
+            var chapters = Resource.getChapters();
+
+            chapters.forEach(function (chap) {
+                var option = document.createElement("option");
+                option.text = chap.description;
+                option.value = chap.name;
+                sel.add(option);
+            });
+        }
+        function gotoChapter() {
+            var sel = document.getElementById('chapterSelect');
+            var selected_chapter = sel.options[sel.selectedIndex].value;
+            level_idx = Resource.getChapter(selected_chapter).startIdx;
+            initBoard();
+        }
+
+        </script>
+    </head>
+    <body onload="init()" bgcolor="lightgray">
+        <canvas id="canvas" onmousedown="" width="800" height="600" style="background-color:#EEE;"></canvas>
+        <br />
+        <div id="state" class="centered">
+            <button onclick="undo()">Undo</button>
+        </div>
+        <div id="explanation" class="centered">
+            <button onclick="prev()">Prev</button>
+            <button onclick="initBoard()">Reset</button>
+            <button onclick="next()">Next</button>
+            <p>
+                Level #<span id="lvl_num"></span> <br />
+                <span style="color:grey;"><span id="lvl_desc">[description]</span></span> <br />
+                Jump to: <select id="chapterSelect" name="chapter" onchange="gotoChapter()">
+                </select>
+            </p>
+            <p>
+                Drop expressions into <span style="color:#666;">holes</span> inside other expressions. <br />
+                If an expression blinks <span style="color:ForestGreen;">green</span>, click it to reduce.
+            </p>
+        </div>
+        <div class="centered">
+            <p>
+                <button id="writeALevel">Write your own level!</button>
+            </p>
+
+            <div id="write-level-form" title="Write a level">
+              <p class="validateTips">Refer to <a href="writing_levels.html" target="blank">this sheet</a> for more info.</p>
+
+              <form>
+                <fieldset>
+                  <label for="name">Level:</label>
+                  <input type="text" name="name" id="level_expr_input" value="(λx #x) (star)" class="expr_input" size="45"> <br />
+                  <label for="email">Goal:</label>
+                  <input type="text" name="email" id="goal_expr_input" value="(star)" class="expr_input" size="45">
+
+                  <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                  <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                </fieldset>
+              </form>
+            </div>
+
+        </div>
+        <div id="logdownload" class="centered">
+            <button onclick="Logger.download()">Download log data.</button>
+        </div>
+    </body>
+</html>
