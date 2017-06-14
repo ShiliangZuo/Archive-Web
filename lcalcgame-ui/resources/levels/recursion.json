@@ -79,36 +79,6 @@
       "board": "(define /(λx /(ifelse /(== #x _) /0 /(+ /#x /(namedfunc (sum) /_))  )) `sum) (notch)",
       "goal": "(10)",
       "toolbox": "(0) (1) (2) (3) (4) (- /#x /1)"
-    },
-
-    {
-      "board": "(define /(λx /#x ) `reverse) (notch)",
-      "goal": "(e)",
-      "toolbox": "(0) (ef)"
-    },
-
-    {
-      "board": "(define /(λx /(stringobj #x `[..]) ) `reverse) (notch)",
-      "goal": "(e)",
-      "toolbox": "(0) (ef)"
-    },
-
-    {
-      "board": "(define /(λx /(ifelse /(== /(stringobj #x `length) /1) /0 /1) ) `reverse) (notch)",
-      "goal": "(rever5e)",
-      "toolbox": "(0) (stringobj #x `slice) (1) (- /(stringobj #x `length) /1) (e5rever)"
-    },
-
-    {
-      "board": "(define /(λx /(ifelse /(== /(stringobj $x `length) /1) /$x /1) ) `reverse) (notch)",
-      "goal": "(rever5e)",
-      "toolbox": "(0) (stringobj #x `slice) (1) (- /(stringobj #x `length) /1) (e5rever)"
-    },
-
-    {
-      "board": "(define /(λx /(ifelse /(== /(stringobj $x `length) /1) /$x /(++ /(namedfunc (reverse) /_)  /(stringobj $x `[..])) )) `reverse) (notch)",
-      "goal": "(rever5e)",
-      "toolbox": "(0) (stringobj $x `slice) (1) (- /(stringobj $x `length) /1) (e5rever)"
     }
   ],
   "resources":{
