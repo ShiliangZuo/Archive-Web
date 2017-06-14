@@ -23,6 +23,11 @@
             "toolbox": ""
         },
         {
+            "goal": "edu",
+            "board": "(stringobj (reduct) `slice)",
+            "toolbox": "(0) (1) (2) (3) (4) (5)"
+        },
+        {
             "goal": "3",
             "board": "(stringobj (apple) `slice)",
             "toolbox": "(0) (1) (2) (4)"

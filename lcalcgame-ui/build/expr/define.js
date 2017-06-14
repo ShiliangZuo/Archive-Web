@@ -341,7 +341,7 @@ var DefineExpr = function (_ClampExpr) {
             var numargs = 0;
 
             if (this.expr instanceof LambdaExpr) numargs = this.expr.numOfNestedLambdas();
-            console.log(numargs);
+            //console.log(numargs);
             for (var i = 0; i < numargs; i++) {
                 args.push(new MissingExpression());
             } // Return named function (expression).
@@ -459,9 +459,9 @@ var DefineExpr = function (_ClampExpr) {
     }, {
         key: 'expr',
         get: function get() {
-            console.log("Called get expr() in DEFINEEXPR ...!!!!");
+            //console.log("Called get expr() in DEFINEEXPR ...!!!!");
             //console.trace();
-            console.log(this.children[1]);
+            //console.log(this.children[1]);
             return this.children[1];
         }
     }, {

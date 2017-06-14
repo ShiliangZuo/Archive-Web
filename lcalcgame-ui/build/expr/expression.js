@@ -127,6 +127,16 @@ var Expression = function (_mag$RoundedRect) {
         value: function swap(arg, anotherArg) {
             if (!arg || anotherArg === undefined) return;
             var i = this.holes.indexOf(arg);
+
+            console.log("swap: arg");
+            console.log(arg);
+            console.log("this.holes");
+            console.log(this.holes);
+
+            if (arg instanceof LambdaVarExpr) {
+                i = 0;
+            }
+
             if (i > -1) {
 
                 if (anotherArg === null) {

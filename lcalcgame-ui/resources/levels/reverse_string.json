@@ -1,102 +1,113 @@
 {
-  "chapterName":"Variable Objects Methods",
-  "description":"Using methods on variables",
+  "chapterName":"Reverse String",
+  "description":"reverse a string",
   "levels": [
+
     {
-      "goal": "(star)",
-      "board": "(arrayobj (bag star rect) `[..])",
-      "toolbox": "($index)",
+      "goal": "(bag (b) (a))",
+      "description": "swap_two_elements",
+      "board": "(sequence /(assign /$x /(arrayobj $s `[..])) /(assign /(arrayobj $s `[..]) /(arrayobj $s `[..])) /(assign /(arrayobj $s `[..]) $x) )",
+      "toolbox": "(0) (1) (0) (1) ($s)",
       "globals": {
-        "index": "(0)"
+        "s": "(bag (a) (b))",
+        "x": "null"
       }
     },
 
     {
-      "goal": "(star)",
-      "board": "(arrayobj $s `[..])",
-      "toolbox": "(0)",
+      "goal": "(abc)",
+      "description": "swap char at 0 and 2",
+      "board": "(sequence /(assign /$x (stringobj $s `[..])) /(assign /(stringobj $s `[..]) /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) $x) )",
+      "toolbox": "(0) (0) (0) (1) (1) (1) (2) (2) (2) ($s)",
       "globals": {
-        "s": "(bag star rect)"
+        "s": "(cba)",
+        "x": "null"
       }
     },
 
     {
-      "goal": "(star)",
-      "board": "(arrayobj $s `[..])",
-      "toolbox": "($index)",
+      "goal": "(abc)",
+      "board": "(sequence /(assign /$index /_) /(assign /$index2 /_) /(assign /$x /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) $x) )",
+      "toolbox": "(0) (1) (2) ($s) ($index) ($index) ($index2) ($index2)",
       "globals": {
-        "s": "(bag star rect)",
-        "index": "(0)"
+        "s": "(cba)",
+        "index": "null",
+        "index2": "null",
+        "x": "null"
       }
     },
 
     {
-      "goal": "(modify)",
-      "board": "(5) (assign /(stringobj $s `[..]) /_) (y)",
-      "toolbox": "($s)",
+      "goal": "(copyb2a)",
+      "description": "copy a string",
+      "board": "(repeat /($i) /(sequence /(assign /(stringobj $a `[..]) /(stringobj $b `[..])) (assign /$index /(+ /$index /1)) ))",
+      "toolbox": "($a) (assign /$i _) (stringobj $b `length) ($index) ($index)",
       "globals": {
-        "s": "(modifi)"
+        "b": "(copyb2a)",
+        "a": "(.......)",
+        "index": "(0)",
+        "x": "null"
       }
     },
 
     {
-      "goal": "(bag rect rect)",
-      "board": "(0) (rect) (assign /(arrayobj $array `[..]) /_)",
-      "toolbox": "($array)",
+      "goal": "(take)",
+      "description": "take first half of string",
+      "board": "(repeat /($i) /(sequence /(assign /(stringobj $a `[..]) /(stringobj $s `[..])) (assign /$index /(+ /$index /1)) ))",
+      "toolbox": "($a) (assign /$i /(-- /(stringobj $s `length) /_)) (2) (3) ($index) ($index)",
       "globals": {
-        "array": "((bag star rect))"
+        "s": "(takehalf)",
+        "a": "(....)",
+        "index": "(0)",
+        "x": "null"
       }
     },
 
     {
-      "goal": "(c)",
-      "board": "($index) (sequence /(assign /$index /_) /(assign /$x /(stringobj $s `[..])) )",
-      "toolbox": "(0) (1) (2) (3) (4) ($x)",
+      "goal": "(gbcdefa)",
+      "board": "(sequence /(assign /($index) /0) /(assign /($index2) /_) /(assign /$x /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) $x) )",
+      "toolbox": "($s) (- /(stringobj $s `length) /1) ($index) ($index) ($index2) ($index2)",
+      "globals": {
+        "s": "(abcdefg)",
+        "index": "null",
+        "index2": "null",
+        "x": "null"
+      }
+    },
+
+    {
+      "goal": "(iSiiiiiPi)",
+      "board": "(sequence /(assign /($index) /1) /(assign /($index2) /(- /(- /(stringobj $s `length) /(_)) /$index)) /(assign /$x /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) $x) )",
+      "toolbox": "($s) (0) (1) ($index) ($index) ($index2) ($index2)",
+      "globals": {
+        "s": "(abcdefg)",
+        "index": "null",
+        "index2": "null",
+        "x": "null"
+      }
+    },
+
+    {
+      "goal": "(edcba)",
+      "board": "(repeat /($i) /(sequence _ /(assign /$x /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) /(stringobj $s `[..])) /(assign /(stringobj $s `[..]) $x) _ ))  (assign /$index /(+ /$index /1))",
+      "toolbox": "($s) (assign /$i _) (assign /$index2 _) (-- /(stringobj $s `length) /2) ($index) ($index) ($index2) ($index2) (- /(- /(stringobj $s `length) /$index) /1)",
       "globals": {
         "s": "(abcde)",
-        "x": "null"
-      }
-    },
-
-    {
-      "goal": "(bag star star)",
-      "board": "($index) ($index1) (assign /(arrayobj $s `[..]) /(arrayobj $s `[..]))",
-      "toolbox": "($s)",
-      "globals": {
-        "s": "(bag star rect)",
         "index": "(0)",
-        "index1": "(1)",
+        "index2": "null",
         "x": "null"
       }
     },
 
     {
-      "goal": "(bag star star)",
-      "board": "(sequence /(assign /$x /(star)) /(assign /(arrayobj $s `[..]) /_) ) ($x)",
-      "toolbox": "(0) (1)",
+      "goal": "(bag (b) (a))",
+      "board": "(repeat /($i) /(sequence _ /(assign /$x /(arrayobj $s `[..])) /(assign /(arrayobj $s `[..]) /(arrayobj $s `[..])) /(assign /(arrayobj $s `[..]) $x) _ ))  (assign /$index /(+ /$index /1))",
+      "toolbox": "($s) (assign /$i _) (assign /$index2 _) (-- /(arrayobj $s `length) /2) ($index) ($index) ($index2) ($index2) (- /(- /(arrayobj $s `length) /$index) /1)",
       "globals": {
-        "s": "(bag star rect)",
+        "s": "(bag (a) (b))",
+        "index": "(0)",
+        "index2": "null",
         "x": "null"
-      }
-    },
-
-    {
-      "goal": "(star)",
-      "board": "($index) (sequence /(assign /($index) /_) /(assign /$x /(arrayobj $s `[..])) )",
-      "toolbox": "($x) (0) (1)",
-      "globals": {
-        "s": "(bag star rect)",
-        "x": "null"
-      }
-    },
-
-    {
-      "goal": "3",
-      "description": "(test_division)",
-      "board": "(-- /_ /2) (stringobj $s `length)",
-      "toolbox": "",
-      "globals": {
-        "s" : "abcdef"
       }
     }
 

@@ -1,105 +1,115 @@
 {
-  "chapterName":"Variable Objects Methods",
-  "description":"Using methods on variables",
+  "chapterName":"Recursion",
+  "description":"Introduction to recursion",
   "levels": [
     {
+      "description": "a function",
+      "board": "(define /star `Star) (notch)",
       "goal": "(star)",
-      "board": "(arrayobj (bag star rect) `[..])",
-      "toolbox": "($index)",
+      "toolbox": ""
+    },
+    {
+      "board": "(define /(λx /2) `foo) (namedfunc /(foo) /1) (notch)",
+      "goal": "2",
+      "toolbox": ""
+    },
+    {
+      "board": "(define /(λx /(namedfunc (star))) `foo) (define /star `star) (namedfunc (foo) /1)(notch) (notch)",
+      "goal": "star",
+      "toolbox": ""
+    },
+
+    {
+      "board": "(define /(λx /(ifelse /(== #x 0) /true /false)) `isZero) (notch)",
+      "goal": "true",
+      "toolbox": "(5) (0)"
+    },
+
+    {
+      "board": "(define /(λx /(ifelse /(== #x 0) /0 /(namedfunc (zero) /0))) `zero) (notch)",
+      "goal": "0",
+      "toolbox": "(5)"
+    },
+    {
+      "board": "(define /(λx /(ifelse /(== #x 0) /0 /(namedfunc (???) /(- /#x /1)))) `???) (notch)",
+      "goal": "0",
+      "toolbox": "(2)"
+    },
+
+    {
+      "board": "(repeat /($i) /(sequence /(assign /$ans /_) ))",
+      "goal": "64",
+      "toolbox": "(* /2 /$ans) ($ans) (assign /$i /_) (1) (2) (3) (4) (5) (6)",
       "globals": {
-        "index": "(0)"
+        "ans": "1",
+        "num": "1"
+      }
+    },
+    {
+      "board": "(define /(λx /(ifelse /(== #x 0) /1 /(* /2 /(namedfunc (pow2) /(- /#x /1)))  )) `pow2) (notch)",
+      "goal": "8",
+      "toolbox": "(3)"
+    },
+
+    {
+      "board": "(define /(λx /(ifelse /(== #x 0) /1 /(* /#x /(namedfunc (factorial) /_))  )) `factorial) (notch)",
+      "goal": "6",
+      "toolbox": "(3) (- /#x /1)"
+    },
+    {
+      "board": "(repeat /($i) /(sequence /(assign /$ans /(* /$ans /$num)) /(assign /$num /_)))",
+      "goal": "24",
+      "toolbox": "(4)  (+ /$num /1) (assign /$i /_) ($ans)",
+      "globals": {
+        "ans": "1",
+        "num": "1"
       }
     },
 
     {
-      "goal": "(star)",
-      "board": "(arrayobj $s `[..])",
-      "toolbox": "(0)",
+      "board": "(repeat /($i) /(sequence /(assign /$ans /(+ /$ans /$num)) /(assign /$num /_)))",
+      "goal": "10",
+      "toolbox": "(1) (2) (3) (4)  (+ /$num /1) (assign /$i /_) ($ans)",
       "globals": {
-        "s": "(bag star rect)"
+        "ans": "0",
+        "num": "1"
       }
+    },
+    {
+      "board": "(define /(λx /(ifelse /(== #x _) /0 /(+ /#x /(namedfunc (sum) /_))  )) `sum) (notch)",
+      "goal": "(10)",
+      "toolbox": "(0) (1) (2) (3) (4) (- /#x /1)"
     },
 
     {
-      "goal": "(star)",
-      "board": "(arrayobj $s `[..])",
-      "toolbox": "($index)",
-      "globals": {
-        "s": "(bag star rect)",
-        "index": "(0)"
-      }
+      "board": "(define /(λx /#x ) `reverse) (notch)",
+      "goal": "(e)",
+      "toolbox": "(0) (ef)"
     },
 
     {
-      "goal": "(modify)",
-      "board": "(5) (assign /(stringobj $s `[..]) /_) (y)",
-      "toolbox": "($s)",
-      "globals": {
-        "s": "(modifi)"
-      }
+      "board": "(define /(λx /(stringobj #x `[..]) ) `reverse) (notch)",
+      "goal": "(e)",
+      "toolbox": "(0) (ef)"
     },
 
     {
-      "goal": "(bag rect rect)",
-      "board": "(0) (rect) (assign /(arrayobj $array `[..]) /_)",
-      "toolbox": "($array)",
-      "globals": {
-        "array": "((bag star rect))"
-      }
+      "board": "(define /(λx /(ifelse /(== /(stringobj #x `length) /1) /0 /1) ) `reverse) (notch)",
+      "goal": "(rever5e)",
+      "toolbox": "(0) (stringobj #x `slice) (1) (- /(stringobj #x `length) /1) (e5rever)"
     },
 
     {
-      "goal": "(c)",
-      "board": "($index) (sequence /(assign /$index /_) /(assign /$x /(stringobj $s `[..])) )",
-      "toolbox": "(0) (1) (2) (3) (4) ($x)",
-      "globals": {
-        "s": "(abcde)",
-        "x": "null"
-      }
+      "board": "(define /(λx /(ifelse /(== /(stringobj $x `length) /1) /$x /1) ) `reverse) (notch)",
+      "goal": "(rever5e)",
+      "toolbox": "(0) (stringobj #x `slice) (1) (- /(stringobj #x `length) /1) (e5rever)"
     },
 
     {
-      "goal": "(bag star star)",
-      "board": "($index) ($index1) (assign /(arrayobj $s `[..]) /(arrayobj $s `[..]))",
-      "toolbox": "($s)",
-      "globals": {
-        "s": "(bag star rect)",
-        "index": "(0)",
-        "index1": "(1)",
-        "x": "null"
-      }
-    },
-
-    {
-      "goal": "(bag star star)",
-      "board": "(sequence /(assign /$x /(star)) /(assign /(arrayobj $s `[..]) /_) ) ($x)",
-      "toolbox": "(0) (1)",
-      "globals": {
-        "s": "(bag star rect)",
-        "x": "null"
-      }
-    },
-
-    {
-      "goal": "(star)",
-      "board": "($index) (sequence /(assign /($index) /_) /(assign /$x /(arrayobj $s `[..])) )",
-      "toolbox": "($x) (0) (1)",
-      "globals": {
-        "s": "(bag star rect)",
-        "x": "null"
-      }
-    },
-
-    {
-      "goal": "3",
-      "description": "(test_division)",
-      "board": "(-- /_ /2) (stringobj $s `length)",
-      "toolbox": "",
-      "globals": {
-        "s" : "abcdef"
-      }
+      "board": "(define /(λx /(ifelse /(== /(stringobj $x `length) /1) /$x /(++ /(namedfunc (reverse) /_)  /(stringobj $x `[..])) )) `reverse) (notch)",
+      "goal": "(rever5e)",
+      "toolbox": "(0) (stringobj $x `slice) (1) (- /(stringobj $x `length) /1) (e5rever)"
     }
-
   ],
   "resources":{
     "planet":"planet-boolili",

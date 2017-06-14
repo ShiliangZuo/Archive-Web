@@ -122,7 +122,7 @@ var NamedFuncExpr = function (_Expression) {
         //console.log("...args.....!!!");
         //console.log(...args);
 
-        console.trace();
+        //console.trace();
 
         var txt_name = new TextExpr(name);
         txt_name.color = 'black';
@@ -158,7 +158,7 @@ var NamedFuncExpr = function (_Expression) {
     }, {
         key: 'onmouseclick',
         value: function onmouseclick() {
-            console.log(this);
+            //console.log(this);
             this.performReduction();
         }
     }, {
@@ -181,7 +181,7 @@ var NamedFuncExpr = function (_Expression) {
                     return !(e instanceof LambdaHoleExpr);
                 });
                 if (incomplete_exprs.length > 0) {
-                    console.log(incomplete_exprs);
+                    //console.log(incomplete_exprs);
                     incomplete_exprs.forEach(function (e) {
                         return Animate.blink(e, 1000, [1, 0, 0], 2);
                     });
@@ -204,7 +204,7 @@ var NamedFuncExpr = function (_Expression) {
 
                     // All the arguments check out. Now we need to apply them.
                     var _expr = this.funcExpr;
-                    console.log(_expr);
+                    //console.log(expr);
 
                     if (args.length > 0) _expr = args.reduce(function (lambdaExpr, arg) {
                         return lambdaExpr.applyExpr(arg);
