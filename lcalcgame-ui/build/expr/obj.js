@@ -801,6 +801,12 @@ var ArrayObjectExpr = function (_ObjectExtensionExpr) {
             return r;
         }
     }, {
+        key: 'canReduce',
+        value: function canReduce() {
+            //TODO
+            return true;
+        }
+    }, {
         key: 'constructorArgs',
         get: function get() {
             return [this.holes[0].clone(), this.defaultMethodCall, this.defaultMethodArgs];
