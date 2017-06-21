@@ -48,13 +48,13 @@
     {
       "board": "(define /(λx /(ifelse /(== #x 0) /1 /(* /2 /(namedfunc (pow2) /(- /#x /1)))  )) `pow2) (notch)",
       "goal": "8",
-      "toolbox": "(3)"
+      "toolbox": "(0) (1) (2) (3) (4)"
     },
 
     {
       "board": "(define /(λx /(ifelse /(== #x 0) /1 /(* /#x /(namedfunc (factorial) /_))  )) `factorial) (notch)",
       "goal": "6",
-      "toolbox": "(3) (- /#x /1)"
+      "toolbox": "(4) (3) (2) (1) (0) (- /#x /1)"
     },
     {
       "board": "(repeat /($i) /(sequence /(assign /$ans /(* /$ans /$num)) /(assign /$num /_)))",
@@ -67,6 +67,11 @@
     },
 
     {
+      "board": "(define /(λx /(ifelse /(== #x _) /0 /(+ /#x /(namedfunc (sum) /_))  )) `sum) (notch)",
+      "goal": "(10)",
+      "toolbox": "(0) (1) (2) (3) (4) (- /#x /1)"
+    },
+    {
       "board": "(repeat /($i) /(sequence /(assign /$ans /(+ /$ans /$num)) /(assign /$num /_)))",
       "goal": "10",
       "toolbox": "(1) (2) (3) (4)  (+ /$num /1) (assign /$i /_) ($ans)",
@@ -74,11 +79,6 @@
         "ans": "0",
         "num": "1"
       }
-    },
-    {
-      "board": "(define /(λx /(ifelse /(== #x _) /0 /(+ /#x /(namedfunc (sum) /_))  )) `sum) (notch)",
-      "goal": "(10)",
-      "toolbox": "(0) (1) (2) (3) (4) (- /#x /1)"
     }
   ],
   "resources":{
